@@ -5,9 +5,9 @@ import json
 # WiFi credentials - Not needed for Python 3 as it assumes internet connection is already established.
 
 # Firebase credentials
-API_KEY = "AIzaS"
+API_KEY = "AIz"
 DATABASE_URL = "https://botcontrolling-default-rtdb.asia-southeast1.firebasedatabase.app/"  # Replace with your Firebase Realtime Database URL
-FIREBASE_AUTH = "5lsGlHTk"  # Optional for basic security
+FIREBASE_AUTH = "5lslH"  # Optional for basic security
 
 # Send data to Firebase Realtime Database
 def send_data(path, data):
