@@ -1,0 +1,59 @@
+<script src="marksheet.js"></script>
+<html>
+    <body>
+        <center>
+             <table>
+                <caption><h2>Student Marksheet Registration Form</h2></caption>
+                <tr>
+                    <td><b>Roll  No.:</b></td>
+                    <td><input type="text" id="rollno"></td>
+                </tr>
+                <tr>
+                    <td><b>Name:</b></td>
+                    <td><input type="text" id="student"></td>
+                </tr>
+                <tr>
+                    <td><b>Father's Name:</b></td>
+                    <td><input type="text" id="father"></td>
+                </tr>
+                <tr>
+                    <td><b>Gender:</b></td>
+                    <td>
+                        <select id="gender">
+                            <option>-Select Gender-</option>
+                            <option>M</option>
+                            <option>F</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>School Name:</b></td>
+                    <td><input type="text" id="school"></td>
+                </tr>
+                <tr>
+                    <td><b>Physics Marks:</b></td>
+                    <td><input type="text" id="physics"></td>
+                </tr>
+                <tr>
+                    <td><b>Chemistry Marks:</b></td>
+                    <td><input type="text" id="chemistry"></td>
+                </tr>
+                <tr>
+                    <td><b>Maths Marks:</b></td>
+                    <td><input type="text" id="maths"></td>
+                </tr>
+                <tr>
+                    <td><b>Hindi Marks:</b></td>
+                    <td><input type="text" id="hindi"></td>
+                </tr>
+                <tr>
+                    <td><b>English Marks:</b></td>
+                    <td><input type="text" id="english"></td>
+                </tr>
+             </table>
+             <input type="submit" onclick="showMarksheet()">
+             <input type="reset">   
+            <div id="marksheet"></div>
+        </center>
+    </body>
+</html>

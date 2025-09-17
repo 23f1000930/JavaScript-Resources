@@ -1,0 +1,17 @@
+<script>
+    function calculate(item,i)
+    {
+        var s=item*item
+        var c=s*item
+        return [s,c]
+    }
+    function call()
+    {
+        var x=[5,7,22,88,99]
+        var newarray=x.map(calculate)
+        console.log(newarray)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

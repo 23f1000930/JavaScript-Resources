@@ -1,0 +1,20 @@
+<script>
+    function call()
+    {
+       var x=[[5,3],[6,9],[22,99]]
+       var newarray=x.filter((item,i)=>{
+        if(item) 
+        {   //This will work for only multi-D array , NOT single-D array
+            item[0]=item[0]+100   //or  item[1]=item[1]*100  and this operation execute for all elements of an aray 
+            item[1]=item[1]*100
+            return true
+        }
+        else
+        {return false}
+       })
+       console.log(newarray)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

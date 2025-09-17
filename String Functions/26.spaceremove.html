@@ -1,0 +1,13 @@
+<script>
+    function call()
+    {
+        var str="XXXXXINDIAXXXXX"
+        si=str.indexOf('INDIA')
+        ei=str.indexOf('X',si)
+        r=str.slice(si,ei)
+        console.log(r)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

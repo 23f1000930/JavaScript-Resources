@@ -1,0 +1,22 @@
+<script>
+    var inter = ""
+    function call()
+    {
+        var today=new Date()
+        msg.innerHTML=`${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
+        //msg.innerHTML=today
+    }
+    function stop()
+    {
+        clearInterval(inter)
+    }
+    function start()
+    {
+        inter = setInterval(call, 1000);
+    }
+</script>
+<html>
+    <input type="button" value="Start" onclick="start()">
+    <input type="button" value="Stop" onclick="stop()">
+    <h1 id="msg"></h1>
+</html>

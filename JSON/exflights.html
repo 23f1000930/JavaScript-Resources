@@ -1,0 +1,53 @@
+<script>
+  var  flights=[
+      {"flightsid":"AI100","source":"Mumbai","destination":'New Delhi',
+      "seats":70,"arrival":"10:40 AM","departure":"11:00 AM",
+      "days":"TTS","logo":"ai.png"},
+      {"flightsid":"SP119","source":"Mumbai","destination":'New Delhi',
+      "seats":90,"arrival":"12:40 PM","departure":"1:00 PM",
+      "days":"Daily","logo":"spj.png"},
+      {"flightsid":"SP134","source":"Goa","destination":'New Delhi',
+      "seats":120,"arrival":"6:00 AM","departure":"7:00 AM",
+      "days":"Daily","logo":"spj.png"},
+      {"flightsid":"IND23","source":"Udaipur","destination":'Pune',
+      "seats":90,"arrival":"18:00 PM","departure":"18:40 PM",
+      "days":"TFS","logo":"ind.png"}]
+
+
+function showFlights(data)
+{
+    var htm=`<table border="1" cellspacing="0" width="50%">`
+        htm+=`<caption><h3>List of Flights</h3></caption>`
+        htm+=`<tr><th>Flight Id</th><th>Source</th><th>Destination</th><th>Seats</th><th>Arrival</th><th>Departure</th><th>Days</th><th>Logo</th></tr>`
+        data.map((item,index)=>{
+        htm+=`<tr><td>${item.flightsid}</td><td>${item.source}</td><td>${item.destination}</td><td>${item.seats}</td><td>${item.arrival}</td><td>${item.departure}</td><td>${item.days}</td><th><img src='${item.logo}' width='50' height='50'></th></tr>`
+        })    
+       htm+=`</table>`
+       result.innerHTML=htm
+}
+
+function call()
+    { 
+     showFlights(flights)
+    }
+ function searchFlights() 
+   { 
+    var sd=txt.value
+    var newflights=flights.filter((item)=>{
+        return item.source.toLowerCase().includes(sd.toLowerCase())
+     })
+     showFlights(newflights)
+
+
+   }
+  </script>
+  <html>
+    <body onload="call()">
+    <br><br><br>
+    <center>
+       <input type="text" size="80" placeholder="Search flights" id="txt"> 
+        <input type="button" value="Search" onclick="searchFlights()" ><br><br>
+    <div id="result"></div>
+    </center>
+  </body>
+  </html>

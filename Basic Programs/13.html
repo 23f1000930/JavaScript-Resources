@@ -1,0 +1,16 @@
+<script>
+    function call()
+    {
+        var m=''
+        if(gm.checked)
+        {m=gm.value} //m='Male'  }
+        else if(gf.checked)    // }-----> defining 'value' is not necessary in 'html'
+        {m=gf.value} //m="Female"}
+        msg.innerHTML=m
+    }
+</script>
+<html>
+    <input type="radio" id="gm" name="gender" value="Male" onchange="call()">Male
+    <input type="radio" id="gf" name="gender" value="Female" onchange="call()">Female<br><br>
+    <div id="msg"></div>
+</html>

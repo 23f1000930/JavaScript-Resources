@@ -1,0 +1,14 @@
+<script>
+    function call()
+    {
+       var x=[['Pepsi',50],['Appy',45],['Fanta',70],['Red Bull',170]]
+       var newarray=x.map((item,i)=>{
+        var d=item[1]-(item[1]*10/100)
+        return [item[0],item[1],d]
+       })
+       console.log(newarray)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Data to Firebase</title>
+  <script>
+    // Firebase configuration
+    const DATABASE_URL = "https://botcontrolling-default-rtdb.asia-southeast1.firebasedatabase.app/"; // Replace with your Firebase Realtime Database URL
+    const FIREBASE_AUTH = "5lsGlHTkKufVqSp9xHGbEhZAzQokPLeiCfHvbMSv"; // Optional for basic security
+
+    let activeInterval = null; // Timer for sending data
+    let pressedButtons = {}; // Track pressed buttons
+
+    // Function to send data to Firebase
+    async function sendData(value) {
+      const path = "Movement"; // Firebase database path
+      const url = `${DATABASE_URL}/${path}.json${FIREBASE_AUTH ? `?auth=${FIREBASE_AUTH}` : ''}`;
+      const data = { value }; // Data to send
+
+      try {
+        const response = await fetch(url, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          console.log("Data sent to Firebase:", value);
+        } else {
+          console.error("Failed to send data:", response.status, response.statusText);
+        }
+      } catch (error) {
+        console.error("Error sending data:", error);
+      }
+    }
+
+    // Start sending data continuously for a value
+    function startSending(value) {
+      // Stop any previous interval
+      if (activeInterval) {
+        clearInterval(activeInterval);
+      }
+
+      // Start a new interval to send data continuously
+      activeInterval = setInterval(() => sendData(value), 500); // Adjust interval time as needed
+    }
+
+    // Stop sending data and check if all buttons are released
+    function stopSending(buttonId) {
+      pressedButtons[buttonId] = false;
+
+      // If no buttons are pressed, send 0
+      if (!Object.values(pressedButtons).includes(true)) {
+        clearInterval(activeInterval);
+        sendData(0);
+      }
+    }
+
+    // Initialize button behavior
+    function initButton(buttonId, value) {
+      const button = document.getElementById(buttonId);
+
+      pressedButtons[buttonId] = false; // Initially not pressed
+
+      // Handle button press
+      button.addEventListener("mousedown", () => {
+        pressedButtons[buttonId] = true;
+        startSending(value);
+      });
+
+      // Handle button release
+      button.addEventListener("mouseup", () => stopSending(buttonId));
+
+      // Handle touch events for mobile compatibility
+      button.addEventListener("touchstart", (e) => {
+        e.preventDefault(); // Prevent duplicate mousedown event
+        pressedButtons[buttonId] = true;
+        startSending(value);
+      });
+
+      button.addEventListener("touchend", () => stopSending(buttonId));
+    }
+
+    // Initialize all buttons on page load
+    window.onload = () => {
+      initButton("button1", 1);
+      initButton("button2", 2);
+      initButton("button3", 3);
+      initButton("button4", 4);
+    };
+  </script>
+</head>
+<body>
+  <h1>Send Data to Firebase</h1>
+  <button id="button1">Send 1</button>
+  <button id="button2">Send 2</button>
+  <button id="button3">Send 3</button>
+  <button id="button4">Send 4</button>
+</body>
+</html>

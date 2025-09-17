@@ -1,0 +1,52 @@
+<script>
+function call()
+{
+  var employee={"id":100,name:"Harry","salary":80000,"city":"Pune"}
+  //read data
+  //console.log(employee.name)
+  //console.log(employee.city)
+  //console.log(employee["name"])
+  //console.log(employee['name'])
+  //console.log(employee[name]) --->error
+  // console.log(employee."name")-->error
+    
+  // add data 
+  //employee['gender']="Male"
+  //console.log(employee)
+
+  //update data
+  //employee['city']='Noida'
+  //console.log(employee) 
+
+  //delete data
+  //delete employee['city']
+  //console.log(employee)
+  
+  //stringify JSON object
+  //var data=JSON.stringify(employee) 
+  //console.log(data)
+  //parse string into JSON
+  //var empData=JSON.parse(data)
+  //console.log(empData)
+
+  // read keys from JSON Object
+  // var keys=Object.keys(employee)
+  //console.log(keys)
+
+  // read values from JSON Object
+  //var value=Object.values(employee)
+  //console.log(value)
+
+  //de structuring
+  //const {city,name}=employee
+  //console.log(city)
+  //console.log(name)
+
+  //de structuring
+  const {city,name,...temp}=employee
+  console.log(temp)
+ }
+</script>
+<html>
+<input type="button" value="Click Here" onclick="call()">
+</html>

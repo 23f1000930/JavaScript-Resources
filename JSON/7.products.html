@@ -1,0 +1,119 @@
+<script>
+    products=[{"productid":100,"category":"Electronics","productname":"TV","brand":"Sony","price":98000,"offerprice":65000,"status":"New Arrival","picture":"tv.png"},
+    {"productid":200,"category":"Electronics","productname":"Smartphone","brand":"Samsung","price":50000,"offerprice":29999,"status":"Deals","picture":"smp.png"},
+    {"productid":1000,"category":"Computer","productname":"Laptop","brand":"HP","price":60000,"offerprice":55000,"status":"New Arrival","picture":"laptop.png"},
+    {"productid":300,"category":"Electrical","productname":"Fan","brand":"Cromption","price":2199,"offerprice":19999,"status":"Offer","picture":"fan.png"},
+    {"productid":400,"category":"Electronics","productname":"Galaxy Book 3","brand":"Samsung","price":74990,"offerprice":69999,"status":"New Arrival","picture":"book3.png"},
+    {"productid":500,"category":"Electrical","productname":"Heater","brand":"Cromption","price":1599,"offerprice":899,"status":"New Arrival","picture":"heater.png"},
+    {"productid":600,"category":"Beverages","productname":"Pepsi","brand":"PepsiCo","price":50,"offerprice":45,"status":"Deals","picture":"pepsi.png"},
+    {"productid":800,"category":"Electronics","productname":"Sound Bar","brand":"Sony","price":5499,"offerprice":4999,"status":"New Arrival","picture":"sound.png"},
+    {"productid":900,"category":"Computer","productname":"mouse","brand":"HP","price":799,"offerprice":699,"status":"Deals","picture":"mouse.png"},
+    {"productid":700,"category":"Beverages","productname":"Coca Cola","brand":"PepsiCo","price":40,"offerprice":36,"status":"Offer","picture":"cocacola.png"}]
+
+    function showProducts(data)
+    {
+        var htm=`<table border="1" cellspacing="0" width="50%">`
+            htm+=`<caption><h3>List Of Products</h3></caption>`
+            htm+=`<tr><th>Product Id</th><th>Category</th><th>Product Name</th><th>Brand</th><th>Price (in Rs)</th><th>Offer Price (in Rs)</th><th>Status</th><th>Picture</th></tr>`
+            data.map((item)=>{
+                htm+=`<tr><td>${item.productid}</td><td>${item.category}</td><td>${item.productname}</td><td>${item.brand}</td><td>${item.price}</td><td>${item.offerprice}</td><td>${item.status}</td><td><img src="${item.picture}" width="70" height="85"</td></tr>`
+            })
+            result.innerHTML=htm
+    }
+
+
+    function showAllProducts()
+    {
+        showProducts(products)
+    }
+
+
+    function searchProducts()
+    {
+        var p=txt.value
+        var newproducts=products.filter((item)=>{
+            return item.productname.toLowerCase().includes(p.toLowerCase())
+        })
+        showProducts(newproducts)
+    }
+
+
+    function showBrandsproducts()
+    { 
+        var checkb=[]
+        if(sony.checked)
+        {
+            checkb=products.filter((item)=>{
+                return item.brand=="Sony"
+            })
+        }
+        if(samsung.checked)
+        {
+            checkb1=products.filter((item)=>{
+                return item.brand=="Samsung"
+            })
+            checkb=checkb.concat(checkb1)
+        }
+        if(cromption.checked)
+        {
+            checkb1=products.filter((item)=>{
+                return item.brand=="Cromption"
+            })
+            checkb=checkb.concat(checkb1)
+        }
+        if(hp.checked)
+        {
+            checkb1=products.filter((item)=>{
+                return item.brand=="HP"
+            })
+            checkb=checkb.concat(checkb1)
+        }
+        if(pepsico.checked)
+        {
+            checkb1=products.filter((item)=>{
+                return item.brand=="PepsiCo"
+            })
+            checkb=checkb.concat(checkb1)
+        }
+        if(checkb.length==0)
+        {showProducts(products)}
+        else
+        {showProducts(checkb)}
+    }
+
+    function showPriceRangeProducts()
+    {
+        min=parseInt(txt1.value)
+        max=parseInt(txt2.value)
+        pricerangeproducts=products.filter((item)=>{
+            return item.offerprice>=min && item.offerprice<=max            
+        })
+        showProducts(pricerangeproducts)
+    }
+</script>
+<html>
+    <body onload="showAllProducts()">
+        <br><br><br>
+        <center>
+            <input type="text" size="80" placeholder="Search By Product Name" id="txt" onkeyup="searchProducts()"><br><br>
+            <table border="0">
+                <tr>
+                    <th>Search By Popular Brands:</th>
+                    <th><input type="checkbox" id="sony" onchange="showBrandsproducts()">Sony</th>
+                    <th><input type="checkbox" id="samsung" onchange="showBrandsproducts()">Samsung</th>
+                    <th><input type="checkbox" id="cromption" onchange="showBrandsproducts()">Cromption</th>
+                    <th><input type="checkbox" id="hp" onchange="showBrandsproducts()">HP</th>
+                    <th><input type="checkbox" id="pepsico" onchange="showBrandsproducts()">PepsiCo</th>
+                </tr>
+                <tr>
+                    <th>Search By Price Range:</th>
+                    <th>Min. Price:</th><th><input type="text" size="5" id="txt1"></th>
+                    <th>Max. Price:</th><th><input type="text" size="5" id="txt2"></th>
+                    <th><input type="button" value="Search" onclick="showPriceRangeProducts()"></th>
+                    <th><input type="button" value="Reset" onclick="showAllProducts()"></th>
+                </tr>  
+            </table>
+            <div id="result"></div>
+        </center>
+    </body>
+</html>

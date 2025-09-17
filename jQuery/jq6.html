@@ -1,0 +1,28 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js">
+</script>
+<script>
+$(document).ready(function(){
+    $('#et').attr('checked',true)
+ $('#et').change(function(){
+if($('#et').prop('checked'))
+{
+  $('#result').html("Electronics selected")  
+}
+else
+{
+    $('#result').html("")  
+
+}
+
+ })
+    
+
+})
+</script>
+<html>
+   <input type="checkbox" id="et" value="Electronics"> Electronics
+   <input type="checkbox" id="ee" value="Electrical"> Electrical
+   <input type="checkbox" id="ss" value="Security"> Security <br><br>
+
+   <div id="result"></div>
+</html>

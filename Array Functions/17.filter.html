@@ -1,0 +1,16 @@
+<script>
+    function call()
+    {
+        var x=[5,7,22,88,99]
+        var newarray=x.filter((item,i)=>{
+            if(item>=60 && item<=100)
+            {return true}
+            else
+            {return false}
+        })
+        console.log(newarray)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

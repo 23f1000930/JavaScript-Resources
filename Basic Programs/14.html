@@ -1,0 +1,17 @@
+<script>
+    function call()
+    {
+        if(red.checked)
+        {msg.color=red.value}
+        else if(blue.checked)
+        {msg.color=blue.value}
+        else if(green.checked)
+        {msg.color=green.value}
+    }
+</script>
+<html>
+    <input type="radio" id="red" name="colour" value="RED" onchange="call()">RED
+    <input type="radio" id="blue" name="colour" value="#6c5ce7" onchange="call()">BLUE   
+    <input type="radio" id="green" name="colour" value="00b89" onchange="call()">GREEN<br><br>
+    <font size="14" id="msg">Hi, This is vanilla Script</font>
+</html>

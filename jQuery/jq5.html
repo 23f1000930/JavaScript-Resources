@@ -1,0 +1,52 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js">
+</script>
+<script>
+$(document).ready(function(){
+    
+    $('#state').change(function(){
+       
+      var i=$('#state').prop('selectedIndex')
+      $('#city').empty()
+        switch(i)
+        {
+            case 0:
+                var mpcity=['Gwalior','Indore']
+                for(i=0;i<mpcity.length;i++)
+                {
+                    $('#city').append($('<option>').text(mpcity[i]).val(i))
+                }
+                break
+            case 1:
+                var upcity=['Jhansi','Lucknow']
+                for(i=0;i<upcity.length;i++)
+                {
+                    $('#city').append($('<option>').text(upcity[i]).val(i))
+                }
+                break
+    
+
+        }
+        
+    })
+
+})
+
+</script>
+
+<html>
+     <select id="state">
+        <option>Madhya Pradesh</option>
+        <option>Uttar Pradesh</option>
+        <option>Himachal Pradesh</option>
+        
+     </select>   
+    <br>
+    <br>
+    <select id="city"></select>
+
+
+     
+
+
+
+</html>

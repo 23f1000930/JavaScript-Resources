@@ -1,0 +1,15 @@
+<script>
+    function call()
+    {
+        var x=[89,90,56,100,25,107]
+        var y=['Harry','Peter','Alice','Tony','Vicky','Thomas']
+        var n=x.sort((a,b)=>a>b?1:-1)  //ascending order sorting
+        console.log(n)
+        var s=y.sort((a,b)=>a>b?1:-1)   //sorting in ascending order of ascii value/or in dictionary order
+        console.log(s)
+        //in strings sorting happens according to ascii value of each character or in dictionary order
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

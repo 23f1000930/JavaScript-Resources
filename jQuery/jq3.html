@@ -1,0 +1,19 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js">
+</script>
+<script>
+$(document).ready(function(){
+    $('#txt').val('DEFAULT')
+    $('#btn').click(function(){
+       var htm=`<h1>My name is ${$('#txt').val()}</h1>`
+        $('#result').html(htm)
+    })
+
+})
+
+</script>
+
+<html>
+    <input type="text" id="txt" ><br><br>
+    <input type="button" id="btn" value="Click Here" ><br><br>
+    <div id="result"></div>    
+</html>

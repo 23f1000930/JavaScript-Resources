@@ -1,0 +1,15 @@
+<script>
+    function call()
+    {
+        var x=[5,7,22,88,99]
+        var newarray=x.map((item)=>{
+            var s=item*item
+            var c=s*item
+            return [s,c]
+        })
+        console.log(newarray)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

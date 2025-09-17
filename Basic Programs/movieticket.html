@@ -1,0 +1,52 @@
+<script src="movieticket.js"></script>
+<html>
+    <body>
+        <center>
+            <table>
+                <caption><h2>Movie  Ticket Generator</h2></caption>
+                <tr>
+                    <td><b>Language:</b></td>
+                    <td>
+                        <select id="lang" onchange="language()">
+                            <option>-Select Language-</option>
+                            <option>English</option>
+                            <option>Hindi</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Screen:</b></td>
+                    <td>
+                        <select id="scr" onchange="movie()">
+                            <option>-Select Screen-</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Movie:</b></td>
+                    <td>
+                        <div id="movnam"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Show Time:</b></td>
+                    <td>
+                        <select id="t">
+                            <option>-Select Show Time-</option>
+                            <option value=50>09:00AM-12:00 PM</option>
+                            <option value=25>12:00PM-03:00 PM</option>
+                            <option value=0>03:00PM-06:00 PM</option>
+                            <option value=0>06:00PM-09:00 PM</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>No. Of Tickets:</b></td>
+                    <td><input type="text" id="numtick"></td>
+                </tr>
+            </table>
+            <input type="button" value="Generate Movie Ticket" onclick="genrateticket()">
+            <div id="ticket"></div>
+        </center>
+    </body>
+</html>

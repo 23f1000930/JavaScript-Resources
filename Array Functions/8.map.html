@@ -1,0 +1,16 @@
+<script>
+    function call()
+    {
+        var x=[5,7,22,88,99]
+        var newarray=x.map((item,i)=>{
+            if(item%2==0)
+            return `Even ${item}`
+            else
+            return `Odd ${item}` 
+        })
+        console.log(newarray)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

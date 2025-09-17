@@ -1,0 +1,13 @@
+<script>
+    function call()
+    {
+       var x=["Alia","ALICE","Tony","Vicky","Peter","Harry"]
+       var newarray=x.filter((item,i)=>{
+        return item.toLowerCase().includes('i')
+       })
+       console.log(newarray)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

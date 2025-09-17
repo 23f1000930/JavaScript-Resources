@@ -1,0 +1,11 @@
+<script>
+    function call()
+    {
+        var x=[["LG",45000,20000],["Sony LED",50000,35000],["LG Ref",80000,60000]]
+        var s=x.sort((a,b)=>a[0]>b[0]?1:-1)  //sort by name in ascensing order
+        console.log(s)
+    }
+</script>
+<html>
+    <input type="button" value="Click Here" onclick="call()">
+</html>

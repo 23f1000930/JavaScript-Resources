@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Data to Firebase</title>
+  <script>
+    // Firebase configuration
+    const DATABASE_URL = "https://botcontrolling-default-rtdb.asia-southeast1.firebasedatabase.app/"; // Replace with your Firebase Realtime Database URL
+    const FIREBASE_AUTH = "5lsGlHTkKufVqSp9xHGbEhZAzQokPLeiCfHvbMSv"; // Optional for basic security
+
+    // Function to send data to Firebase
+    async function sendData(value) {
+      const message = 1
+      const path = "Movement"; // Firebase database path
+      const url = `${DATABASE_URL}/${path}.json${FIREBASE_AUTH ? `?auth=${FIREBASE_AUTH}` : ''}`;
+
+      const data = { value }; // Data to send
+
+      try {
+        const response = await fetch(url, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log("Data sent to Firebase:", result);
+          alert("Data sent successfully!");
+        } else {
+          console.error("Failed to send data:", response.status, response.statusText);
+          alert("Failed to send data. Check the console for details.");
+        }
+      } catch (error) {
+        console.error("Error sending data:", error);
+        alert("An error occurred. Check the console for details.");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Send Data to Firebase</h1>
+  <button onclick="sendData(1)">Send 1</button>
+  <button onclick="sendData(2)">Send 2</button>
+  <button onclick="sendData(3)">Send 3</button>
+  <button onclick="sendData(4)">Send 4</button>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<script>
+   function SI()
+   {
+      var p=txt1.value
+      var r=txt2.value
+      var t=txt3.value
+      var si=p*r*t/100
+      result.value="SI is "+si
+   }
+</script>
+<html>
+   <input type="text" id="txt1" placeholder="Enter Amount"><br><br>
+   <input type="text" id="txt2" placeholder="Enter Intrest Rate"><br><br>
+   <input type="text" id="txt3" placeholder="Enter Time"><br><br>
+   <input type="button" value="Find SI" onclick="SI()"><br><br>
+   <input type="text" id="result" placeholder="Upcoming SI.."readonly>
+</html>

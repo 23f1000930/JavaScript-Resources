@@ -1,0 +1,22 @@
+<script>
+    function call()
+    {
+    var student={"CS100":{"name":"Harry","Gender":'Male',"Grade":"A"},
+    "CS101":{"name":"Alice","Gender":'Female',"Grade":"B"},
+    "CS102":{"name":"Alia","Gender":'Female',"Grade":"A"},
+    "CS103":{"name":"Peter","Gender":'Male',"Grade":"C"},
+    "CS104":{"name":"Niket","Gender":'Male',"Grade":"A"},
+
+}
+console.log("STD:",student["CS104"])
+console.log("GRADE",student["CS104"]["Grade"])
+var std=Object.values(student)
+console.log(std)
+student['CS']['CS102']['Name']
+    }
+
+
+</script>
+<html>
+    <input type="button" onclick="call()" value="Click Here"/>
+</html>

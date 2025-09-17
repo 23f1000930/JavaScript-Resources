@@ -1,0 +1,38 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js">
+</script>
+<script>
+$(document).ready(function(){
+    
+    $('#brands').change(function(){
+      // var i=$('#brands option:selected').index() 
+      var i=$('#brands').prop('selectedIndex')
+       var htm=`<h1>${$('#brands').val()} ${i}</h1>`
+        $('#result').html(htm)
+        $('#pic').attr('width',200)
+        $('#pic').attr('src',`${$('#brands').val()}.png`)
+        
+    })
+
+})
+
+</script>
+
+<html>
+     <select id="brands">
+        <option>SONY</option>
+        <option>Panasonic</option>
+        <option>TCL</option>
+        <option>Samsung</option>
+     </select>   
+
+     <br><br>
+     <div id="result">
+
+     </div>
+     <br><br>
+     <img id="pic">
+
+
+
+
+</html>

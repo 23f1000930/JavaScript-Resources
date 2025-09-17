@@ -1,0 +1,23 @@
+<script>
+    function Add()
+    {
+        var i=parseInt(txt1.value)
+        var j=parseInt(txt2.value)
+        var k=i+j
+        result.innerHTML="Addition is "+k
+    }
+    function Sub()
+    {
+        var i=txt1.value
+        var j=txt2.value
+        var k=i-j
+        result.innerHTML="Subtraction is "+k
+    }
+</script>
+<html>
+    <input type="text" id="txt1"><br><br>
+    <input type="text" id="txt2"><br><br>
+    <input type="button" value="Addition" onclick="Add()">
+    <input type="button" value="Subtraction" onclick="Sub()"><br><br>
+    <div id="result">See Here...</div>
+</html>

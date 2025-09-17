@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NodeMCU Web Server</title>
+    <style>
+        body {
+            background-color: #2ecc71;
+            font-family: Arial, sans-serif;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-rows: auto auto auto;
+            grid-template-columns: auto auto auto;
+            gap: 20px;
+            justify-items: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button-container div {
+            margin-top: 60px;
+            grid-column: span 3;
+        }
+
+        .middle-buttons {
+            grid-column: 1 / 4;
+            display: flex;
+            justify-content: space-between;
+            width: 40%;
+        }
+
+        input[type="button"] {
+            padding: 10px 40px;
+            font-size: 54px;
+            font-weight: bold;
+            color: white;
+            background-color: #0984e3;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="button"]:hover {
+            background-color: #74b9ff;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Bot Control</h1>
+        <h2>Control The Bot From Anywhere</h2>
+        <hr color="#d63031" width="50%">
+    </center>
+
+    <div class="button-container">
+        <div>
+            <input type="button" id="forward" value="FORWARD">
+        </div>
+        <div class="middle-buttons">
+            <input type="button" id="left" value="LEFT">
+            <input type="button" id="right" value="RIGHT">
+        </div>
+        <div>
+            <input type="button" id="backward" value="BACKWARD">
+        </div>
+    </div>
+</body>
+
+</html>

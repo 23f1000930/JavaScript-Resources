@@ -1,0 +1,41 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js">
+</script>
+<script>
+$(document).ready(function(){
+  var employee=[{employeeid:"100",employeename:"Alia",salary:"67000", gender:"Female"},
+  {employeeid:"101",employeename:"Harry",salary:"47000", gender:"Male"},
+  {employeeid:"102",employeename:"Peter",salary:"97000", gender:"Male"}]
+  var htm=`<table border='1' width='400'>`
+    htm+=`<tr><th>Id</th><th>Name</th><th>Salary</th><th>Gender</th><th>Picture</th><th>Show</th></tr>`
+
+  employee.forEach((item)=>{
+    htm+=`<tr><th>${item.employeeid}</th><th>${item.employeename}</th><th>${item.salary}</th><th>${item.gender}</th><th><img src='${item.employeename}.png'</th><th><input type='button'  value='Show' class="employee" data='${JSON.stringify(item)}'/></th></tr>`
+
+  })
+      
+  htm+=`</table>`
+   $('#result').html(htm)
+    
+    $(".employee").click(function(){
+     var emp=JSON.parse($(this).attr('data')) 
+     var emphtm=``
+     emphtm+=`Id:${emp.employeeid}<br>Name:${emp.employeename}`
+     $('#record').html(emphtm)
+   }) 
+
+   
+ 
+    
+
+})
+</script>
+<html>
+   
+   <div id="result"></div>
+   <div id="record"></div>
+
+
+
+
+
+</html>

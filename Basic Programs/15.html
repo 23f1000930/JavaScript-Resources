@@ -1,0 +1,20 @@
+<script>
+    function call()
+    {
+        var total=0
+        if(led.checked)
+        {total+=parseInt(led.value)}
+        if(hifi.checked)
+        {total+=parseInt(hifi.value)}
+        if(projector.checked)
+        {total+=parseInt(projector.value)}
+        price.innerHTML=total
+    }
+</script>
+<html>
+    <input type="checkbox" id="led" value="45000" onchange="call()">Sony LED
+    <input type="checkbox" id="hifi" value="105000" onchange="call()">Sony HiFi 
+    <input type="checkbox" id="projector" value="85000" onchange="call()">Sony projector
+    <br><br>
+    <font size="14" id="price">See Here</font>
+</html>
